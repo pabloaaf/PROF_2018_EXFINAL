@@ -3,7 +3,6 @@ package es.upm.grise.profundizacion2018.examenFinal;
 import java.util.Calendar;
 
 public class Greeting {
-	
 	public String getGreeting( Language language, MyCalendar calendar ) {
 		// Get current hour
 		// = Calendar.getInstance();
@@ -11,7 +10,7 @@ public class Greeting {
 		
 		// Find out the greeting language
 		if ( language == null )
-			language = Message.getDefaultLanguage();
+			language = getDefaultLanguage();
 		
 		// Get the moment of the day
 		TimeOfTheDay moment;
@@ -23,7 +22,16 @@ public class Greeting {
 			moment = TimeOfTheDay.EVENING;
 			
 		// Return the message		
+		return getMessage( moment, language );
+	}
+	
+	public Language getDefaultLanguage(){
+		return Message.getDefaultLanguage();
+	}
+	
+	public String getMessage(TimeOfTheDay moment, Language language){
 		return Message.getMessage( moment, language );
 	}
+	
 
 }
